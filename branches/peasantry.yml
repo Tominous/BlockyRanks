@@ -1,0 +1,76 @@
+# See the sample config file 'sample.yml' for comments and details.
+
+branch:
+  name: '&7&lPeasantry Branch'
+  representing-material: 'light_gray_wool'
+  child-branches: [military.yml, mercantile.yml]
+  ranks:
+    begger:
+      display-name: '&7&lBegger'
+      representing-material: 'light_gray_concrete'
+      money-cost: 10.0
+      xp-cost: 3
+      play-time: 15m
+      mcmmo-levels: 5
+      perks:
+      - '&7Perk 1'
+      - '&7Perk 2'
+      - '&7Perk 3'
+      rankup-commands:
+      - '/give {player} seeds 64'
+
+    buffoon:
+      display-name: '&7&lBuffoon'
+      representing-material: 'light_gray_concrete'
+      money-cost: 50.0
+      xp-cost: 6
+      play-time: 30m
+      mcmmo-levels: 10
+      perks:
+      - '&7Perk 1'
+      - '&7Perk 2'
+      - '&7Perk 3'
+      rankup-commands:
+      - '/give {player} carrot 64'
+
+    crofter:
+      display-name: '&7&lCrofter'
+      representing-material: 'light_gray_concrete'
+      money-cost: 100.0
+      xp-cost: 9
+      play-time: 60m
+      mcmmo-levels: 15
+      perks:
+      - '&7Perk 1'
+      - '&7Perk 2'
+      - '&7Perk 3'
+      rankup-commands:
+      - '/give {player} bakedpotato 64'
+
+    peasant:
+      display-name: '&7&lPeasant'
+      representing-material: 'light_gray_concrete'
+      money-cost: 200.0
+      xp-cost: 12
+      play-time: 2h
+      mcmmo-levels: 20
+      perks:
+      - '&7Perk 1'
+      - '&7Perk 2'
+      - '&7Perk 3'
+      rankup-commands:
+      - '/give {player} bread 64'
+
+    landlord:
+      display-name: '&7&lLandlord'
+      representing-material: 'light_gray_concrete'
+      money-cost: 500.0
+      xp-cost: 18
+      play-time: 4h
+      mcmmo-levels: 25
+      perks:
+      - '&7Perk 1'
+      - '&7Perk 2'
+      - '&7Perk 3'
+      rankup-commands:
+      - '/give {player} cake 3'

@@ -1,0 +1,84 @@
+# See the sample config file 'sample.yml' for comments and details.
+
+branch:
+  name: '&2&lAristocratic Branch'
+  representing-material: 'lime_wool'
+  child-branches: []
+  ranks:
+
+    knight:
+      display-name: '&2&lKnight'
+      representing-material: 'lime_concrete'
+      money-cost: 5000.0
+      xp-cost: 65
+      play-time: 5d
+      mcmmo-levels: 100
+      perks:
+      - '&2Perk 1'
+      - '&2Perk 2'
+      - '&2Perk 3'
+      rankup-commands:
+      - '/give {player} ironboots 1'
+      - '/give {player} ironhelmet 1'
+
+
+    chancellor:
+      display-name: '&2&lChancellor'
+      representing-material: 'lime_concrete'
+      money-cost: 6000.0
+      xp-cost: 80
+      play-time: 7d
+      mcmmo-levels: 125
+      perks:
+      - '&2Perk 1'
+      - '&2Perk 2'
+      - '&2Perk 3'
+      rankup-commands:
+      - '/give {player} ironchestplate 1'
+      - '/give {player} ironleggings 1'
+
+    prince:
+      display-name: '&2&lPrince'
+      representing-material: 'lime_concrete'
+      money-cost: 7500.0
+      xp-cost: 95
+      play-time: 10d
+      mcmmo-levels: 150
+      perks:
+      - '&2Perk 1'
+      - '&2Perk 2'
+      - '&2Perk 3'
+      rankup-commands:
+      - '/give {player} diamondboots 1'
+      - '/give {player} diamondhelmet 1'
+
+    king:
+      display-name: '&2&lSiege Engineer'
+      representing-material: 'lime_concrete'
+      money-cost: 9000.0
+      xp-cost: 110
+      play-time: 15d
+      mcmmo-levels: 175
+      perks:
+      - '&2Perk 1'
+      - '&2Perk 2'
+      - '&2Perk 3'
+      rankup-commands:
+      - '/give {player} diamondchestplate 1'
+      - '/give {player} diamondleggings 1'
+
+    emperor:
+      display-name: '&2&lEmperor'
+      representing-material: 'lime_concrete'
+      money-cost: 12000.0
+      xp-cost: 150
+      play-time: 20d
+      mcmmo-levels: 200
+      perks:
+      - '&2Perk 1'
+      - '&2Perk 2'
+      - '&2Perk 3'
+      rankup-commands:
+      - '/give {player} diamondsword 1'
+      - '/give {player} diamondblock 64'
+      - '/say All hail Emperor {player}!'
