@@ -1,8 +1,7 @@
-# BlockyRanks
+# Version 
 
-BlockyRanks is a simple but powerful Ranks plugin for your Minecraft server.
+The latest version can be found in the latest folder.
+Each other version has its own folder named after its version number.
 
-Check out the **[wiki](https://github.com/BlockyBorzan/BlockyRanks/wiki)** for more details.
+(Please note that versions below 1.0.0 were named "TreeRanks" and will not be available for download anymore)
 
-
-# This site is under construction
