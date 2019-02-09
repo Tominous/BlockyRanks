@@ -13,6 +13,10 @@ version: "v1.0.0"
 
 chat-message-prefix: '&7[&6&lB&3&llocky&6&lR&3&lanks&7] &r'
 
+# ---
+# STORAGE SETTINGS:
+# ---
+
 # supported are 'yml', 'mysql' and 'sqlite'. mysql is recommended.
 storage-type: 'sqlite'
 
@@ -26,14 +30,15 @@ mysql:
   user: 'user'
   password: 'password'
   table_prefix: 'blockyranks_'
+  
+# ---
+# MESSAGE SETTINGS:
+# ---
 
-
-# DEFINE MESSAGES SENT TO PLAYERS HERE
-# you can use {rank} to represent the name of the new rank. The name is derived from the rank tree and 
-# converted into a CamelCase String with spaces (e.g. god_emperor becomes God Emperor).
-# you can also use chat color codes in combination with the ampersand character ('&').
+# You can also use chat color codes in combination with the ampersand character ('&').
 # Leave the options empty ('') in order to not send any messages.
-# supported placeholders are {player}, {nickname} and {rank}. More will probably be added in the future.
+# Supported placeholders are {player} (the player's name), {nickname} (the player's nickname)
+# and {rank} (the player's rank). More will probably be added in the future.
 messages:
   # Sent only to the player on rankup
   player-rankup: '&3Congratulations! You just ascended to the rank of &6{rank}&3!'
@@ -57,7 +62,8 @@ messages:
   exception-err: '&4An error has occured, please try again or contact staff about it if the problem persists.'
 
   # Message sent to players when they try to use any blockyranks commands in a world where no
-  # ranks branch is configured (see below)
+  # ranks branch is configured (see below)   
+  # NO PLACEHOLDERS ARE SUPPORTED ON THIS MESSAGE!
   ranks-unavailable-err: '&4Unfortunately ranks are not available in this world.'
 
   # Message sent to players when their rankup was unsuccessful.
@@ -65,81 +71,48 @@ messages:
   rankup-unsuccessful: '&cUnable to rank up.'
 
 
-#----------------------------------------------------------------------------------------------------------------
-#     CREATE A RANK TREE  -   a few things to consider and pay attention to
-#----------------------------------------------------------------------------------------------------------------
-#   * A rank tree is a group of branches, each containing between 1 and 36 ranks,
-#     connected by specifying which branches come after each branch.
-#
-#   * A branch is a sequence of ranks, where only the first and the last rank on the
-#     branch can have more than 1 and up to 5 preceeding and succeeding ranks.
-#
-#   * Each branch has to be located in its own file '<branchname>.yml'
-#     inside the 'branches/' folder in the BlockyRanks plugin folder.
-#     (for example, if you specify "peasantry.yml" in the 'initial-branch' variable
-#     (or in the 'following-branches' array in each branch's config file)
-#     create, rename or place a the file 'peasantry.yml' inside the folder,
-#     and configure its branch to represent and contain all aristocratic ranks)
-#
-#   * Each such file must contain one and only branch configuration. If there are more
-#     than one, only one of them will be parsed and used, which might throw off your tree.
-#
-#   * If it contains no branch configs, no branch can be constructed and that might
-#     result in a different tree than you might expect or want.
-#
-#   * If it contains no ranks, the branch will be ignored.
-#
-#   * Players may only hold one rank on any of the branches at any given time, otherwise
-#     this plugin will choose the highest rank or choose one at random if two ranks are equal.
-# ----------------------------------------------------------------------------------------------------------------
 
+# ---
+# BRANCH SETTINGS:
+# ---
 
-# This list contains the config files that describe the "per world" first branch of your tree
-# (You can define one tree for each world)
+# This list contains the config files that describe the "per world" 
+# (each world can have its own) initial branch of your tree.
+# That means any players that are not on the rank tree will rank up to the first rank of this initial branch.
+# (You can define a separate tree for each world if you want)
 initial-branches:
   # Here you can define the default branch that is used for all worlds.
   all-worlds:
-    # This enables or disables the whole default branchfeature
+    # This enables or disables the whole default-branch-feature
     enabled: true
     # This defines the default branch used in every world by default (this includes the end and the nether worlds!)
     branch: 'peasantry.yml'
     # The worlds you don't want using the default initial branch are specified here
     exempt-worlds:
-    - 'sample_world_name'
-#    - 'another_world_name_the_end'
+    - 'sample_world'
 
-  # The values specified here override the all-worlds branch if you specified any and enabled the feature.
-  # The file 'peasantry.yml' here contains the initial tree branch for the world 'world'.
-  # Replace 'world' with the name of your own world and add additional worlds if you want to.
+  # The values specified next override the all-worlds branch (if you specified any and enabled the feature).
+  # The file 'peasantry.yml' here contains the initial tree branch for the world 'sample_world'.
+  # You can replace 'sample_world' with the name of your own world and add additional worlds if you want to.
+  sample_world: 'peasantry.yml'
   # The Nether and The End are treated as different worlds by minecraft. Thus you can specify
   # different rank trees available to these worlds, compared to the overworld's rank tree.
-
-#  world: 'peasantry.yml'
-#  world_nether: 'aristocracy.yml'
-#  world_the_end: 'mercantile.yml'
-#  anotherworld: 'aristocracy.yml'
-#  anotherworld_nether: 'aristocracy.yml'
-#  anotherworld_the_end: 'aristocracy.yml'
-
-# These worlds share a common rank. Going from one world to any one in the list will keep the rank the same.
-# If you switch worlds between not linked worlds, then the player's rank will go to the default rank for the new world
-# (or the last rank they had on that world of course)
-# Remember that the nether and the end of each world is regarded as a separate world by minecraft, so if 
-# you want them linked and sharing a common rank you need to link them together!
-#
-# If a world occurs in more than one of these lists, then the world containing lists are combined.
-# So ["world", "world_nether"] and ["world_nether", "world_the_end"] will result in ["world", "world_nether", "world_the_end"]
-#
-# IMPORTANT: The linked worlds should have the same initial branch or you can lose rank data. This can not be checked!
+  sample_world_nether: 'aristocracy.yml'
+  sample_world_the_end: 'mercantile.yml'
+  # In the above configuration, players who first rank up in the nether would start on the aristocracy branch for example. 
+  
+# This enables rank sharing over different worlds. 
 linked-worlds:
   - ["world", "world_nether", "world_the_end"]
-#  - ["anotherworld", "anotherworld_nether", "anotherworld_the_end"]
+# If a world occurs in more than one of these lists, then the lists are combined.
+# So ["world", "world_nether"] and ["world_nether", "world_the_end"] will result in ["world", "world_nether", "world_the_end"]
+# Any non-existent worlds will be treated as if they were worlds on another server and exist.
+# IMPORTANT: The linked worlds should have the same initial branch or you can lose rank data. 
+# (This is not checked as you can link worlds across servers where the initial branch can't be looked up)
 
 
 
-#--------------------------------------------#
-# DON'T FORGET TO CONFIGURE THESE FILES TOO! #
-#--------------------------------------------#
+
 
 # If this is set to 'none', the player rank will not be indicated in the gui.
 # If this value is not 'none', the player rank in the gui will be indicated by the item you specify here.
@@ -176,6 +149,9 @@ rank-up-inventory:
   #        (if the rankup requirements i.e. money, xp, playtime and mcmmo levels are not sufficiently met,
   #         this item will represent the non-clickable item that shows which requirements are not met and by how much)
   #        (You need this in order for players to rank-up)
+  #
+  # 'z' -> represents the non-clickable item displaying the rank info and indicating that the player
+  #        doesn't meet the requirements to rank up. (sort of like a disabled button)  
   #
   # 'r' -> represents the non-clickable item displaying the rank info
   #
