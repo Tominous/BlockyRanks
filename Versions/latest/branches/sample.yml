@@ -31,34 +31,87 @@ branch:
       # It must be a valid material from https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
       # This value is case insensitive.
       representing-material: 'gold_block'
-
-      # This amount of money has to be paid to rank up to this rank.
-      # set to 0 to ignore this price.
-      money-cost: 10.0
-
-      # This amount of levels of xp has to be paid to rank up to this rank.
-      # set to 0 to ignore this price.
-      xp-cost: 3
-
-      # To rank up to this rank, the player has to have played this amount of time in seconds.
-      # The value supports short-hand notation:
-      #     y... years (really? like... really?)
-      #     w... weeks
-      #     d... days
-      #     h... hours
-      #     m... minutes
-      #     s... seconds
-      #     for example, 1d6h2m40s would equal to 1 day, 6 hours, 2 minutes and 40seconds. 600s would equal to 600 seconds or 10 minutes.
-      #     (just entering a number is fine as well, they are interpreted in seconds. e.g. 604800 is equal to 7d (7 days))
-      # set to 0 to ignore this requirement.
-      # (this is no payment, just a requirement)
-      play-time: 1m
-
-      # To rank up to this rank, the player has to have to have acquired this amount of McMMO skill-levels.
-      # set to 0 to ignore this requirement.
-      # (this is no payment, just a requirement)
-      mcmmo-levels: 1
-
+      
+      # Here you can define which requirements players have to meet in order to rank up.
+      # All requirements have to be met in order to rank up. 
+      # You can remove any requirements and requirements sections in order to not have any requirements to rank up.
+      # Also, setting the requirement value to 0 will also ignore it. ('player-money: 0.0' for example)
+      rankup-requirements:
+      
+        # Player money requirements define requirements where a player has to have enough
+        # funds to rank up. These funds can get deducted (player has to pay) or not.
+        # Do not define more than one requirement player money requirement that gets deducted or 
+        # that might lead to unexpected results.
+        player-money-requirements:
+          # Defines wether or not the money gets deducted from the player's balance.
+        - gets-deducted: true
+          # Defines the amount of money the player has to have to rank up.
+          player-money: 100.0
+          # You can define more than one requirement of the same type as this example shows. 
+          # In this case, the player has to have 200.0 balance but only pays the 100 from the above example.
+        - gets-deducted: false
+          player-money: 200.0
+          
+        # REQUIRES THE JOBS REBORN PLUGIN (https://www.spigotmc.org/resources/jobs-reborn.4216/)
+        # Jobs level requirements define requirements where a player has to have a certain total level in
+        # a defined set of Jobs. These jobs are taken directly from your Jobs plugin so you have to use
+        # the jobs that you defined in your config (if you changed the default config).
+        jobs-level-requirements:
+          # In this example the player has to be a Woodcutter on level 10.
+          # These are the jobs that are taken into account.
+        - jobs-names: Woodcutter
+          # This is the total sum level in all of the above jobs. 
+          levels-sum: 10
+          # In this example the player has have 15 total combined levels in the Miner and Builder Jobs.
+        - jobs-names: Miner, Builder
+          levels-sum: 15
+        
+        # Distance traveled requirements define requirements where a player has to travel a certain distance
+        # in blocks by specified means. Valid travel methods are:
+        # foot, water, falling, climbing, flying, minecart, boat, pig, horse, sprinting, crouching
+        distance-traveled-requirements:
+          # The method by which the distance is measured
+        - travel-method: foot, sprinting, boat
+          # The total amount of blocks traveled by all of the above methods combined.
+          player-travel-distance: 1000 #blocks
+        - travel-method: flying
+          player-travel-distance: 500
+       
+        # Player experience requirements define requirements where a player has to have enough levels to rank up.
+        # Like the player money requirements, these can get deducted. 
+        # Do not define more than one requirement player money requirement that gets deducted or 
+        # that might lead to unexpected results.
+        player-experience-requirements:
+          # Defines wether or not the experience gets deducted from the player's experience.
+        - gets-deducted: true
+          # The number of levels a player has to have in order to rank up.
+          player-experience: 5 
+          
+        # Play time requirements define requirements where the player has to have played this amount of time to rank up.
+        play-time-requirements:
+          # The value supports short-hand notation:
+          #   y... years (really? like... really?)
+          #   w... weeks
+          #   d... days
+          #   h... hours
+          #   m... minutes
+          #   s... seconds
+          # for example, 1d6h2m40s would equal to 1 day, 6 hours, 2 minutes and 40seconds. 600s would equal to 600 seconds or 10 minutes.
+          # (just entering a number is fine as well, they are interpreted in seconds. e.g. 604800 is equal to 7d (7 days))
+        - player-playtime: 15m
+        
+        # REQUIRES THE mcMMO PLUGIN (https://www.spigotmc.org/resources/official-mcmmo-overhaul.64348/)
+        # McMMO level requirements define requirements where a player has to have a certain total level in
+        # a defined set of mcMMO skills. These skills are taken directly from your mcMMO plugin so you have to use
+        # the skill names that you defined in your config (if you changed the default config).
+        mcmmo-level-requirements:
+          # These are the skills that are taken into account.
+        - mcmmo-skills: ACROBATICS, ALCHEMY, ARCHERY, AXES, EXCAVATION, FISHING, HERBALISM,
+            MINING, REPAIR, SALVAGE, SMELTING, SWORDS, TAMING, UNARMED, WOODCUTTING
+          # This is the total sum level in all of the above skills.
+          levels-sum: 3
+      
+      
       # These are the perks the players get when they rank up to this rank.
       # (They are purely esthetic and shown in the gui - the actual implementation has
       # to be done using your permissions plugin of choice!)
@@ -80,10 +133,27 @@ branch:
     secondrank:
       display-name: '&3&lSecondExample'
       representing-material: 'LAPIS_BLOCK'
-      money-cost: 100.0
-      xp-cost: 5
-      play-time: 15m
-      mcmmo-levels: 3
+      rankup-requirements:
+        player-money-requirements:
+        - gets-deducted: true
+          player-money: 100.0
+        jobs-level-requirements:
+        - jobs-names: Woodcutter, Miner, Builder, Digger, Farmer, Hunter, Explorer,
+            Crafter, Fisherman, Weaponsmith, Brewer, Enchanter
+          levels-sum: 20
+        distance-traveled-requirements:
+        - travel-method: foot, water, falling, climbing, flying, minecart, boat, pig, horse,
+            sprinting, crouching
+          player-travel-distance: 1000
+        player-experience-requirements:
+        - gets-deducted: true
+          player-experience: 5
+        play-time-requirements:
+        - player-playtime: 15m
+        mcmmo-level-requirements:
+        - mcmmo-skills: ACROBATICS, ALCHEMY, ARCHERY, AXES, EXCAVATION, FISHING, HERBALISM,
+            MINING, REPAIR, SALVAGE, SMELTING, SWORDS, TAMING, UNARMED, WOODCUTTING
+          levels-sum: 3
       perks:
       - '&4Perk 1'
       - '&5Perk 2'

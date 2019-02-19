@@ -8,7 +8,7 @@
 
 # DON'T DELETE THIS KEY OR CHANGE THE VALUE. IT IS IMPORTANT FOR AUTOMATIC CONFIG UPDATES!
 # CHANGES MIGHT LEAD TO DATA INCONSISTENCIES!
-version: "v1.1.0"
+version: "v1.0.1"
 
 chat-message-prefix: '&7[&6&lB&3&llocky&6&lR&3&lanks&7] &r'
 

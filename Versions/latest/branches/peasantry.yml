@@ -8,10 +8,27 @@ branch:
     begger:
       display-name: '&7&lBegger'
       representing-material: 'light_gray_concrete'
-      money-cost: 10.0
-      xp-cost: 3
-      play-time: 15m
-      mcmmo-levels: 5
+      rankup-requirements:
+        player-money-requirements:
+        - gets-deducted: true
+          player-money: 10.0
+        jobs-level-requirements:
+        - jobs-names: Woodcutter, Miner, Builder, Digger, Farmer, Hunter, Explorer,
+            Crafter, Fisherman, Weaponsmith, Brewer, Enchanter
+          levels-sum: 5
+        distance-traveled-requirements:
+        - travel-method: foot, water, falling, climbing, flying, minecart, boat, pig, horse,
+            sprinting, crouching
+          player-travel-distance: 200
+        player-experience-requirements:
+        - gets-deducted: true
+          player-experience: 3
+        play-time-requirements:
+        - player-playtime: 15m
+        mcmmo-level-requirements:
+        - mcmmo-skills: ACROBATICS, ALCHEMY, ARCHERY, AXES, EXCAVATION, FISHING, HERBALISM,
+            MINING, REPAIR, SALVAGE, SMELTING, SWORDS, TAMING, UNARMED, WOODCUTTING
+          levels-sum: 5
       perks:
       - '&7Perk 1'
       - '&7Perk 2'
@@ -22,10 +39,27 @@ branch:
     buffoon:
       display-name: '&7&lBuffoon'
       representing-material: 'light_gray_concrete'
-      money-cost: 50.0
-      xp-cost: 6
-      play-time: 30m
-      mcmmo-levels: 10
+      rankup-requirements:
+        player-money-requirements:
+        - gets-deducted: true
+          player-money: 50.0
+        jobs-level-requirements:
+        - jobs-names: Woodcutter, Miner, Builder, Digger, Farmer, Hunter, Explorer,
+            Crafter, Fisherman, Weaponsmith, Brewer, Enchanter
+          levels-sum: 10
+        distance-traveled-requirements:
+        - travel-method: foot, water, falling, climbing, flying, minecart, boat, pig, horse,
+            sprinting, crouching
+          player-travel-distance: 400
+        player-experience-requirements:
+        - gets-deducted: true
+          player-experience: 6
+        play-time-requirements:
+        - player-playtime: 30m
+        mcmmo-level-requirements:
+        - mcmmo-skills: ACROBATICS, ALCHEMY, ARCHERY, AXES, EXCAVATION, FISHING, HERBALISM,
+            MINING, REPAIR, SALVAGE, SMELTING, SWORDS, TAMING, UNARMED, WOODCUTTING
+          levels-sum: 10
       perks:
       - '&7Perk 1'
       - '&7Perk 2'
@@ -36,10 +70,27 @@ branch:
     crofter:
       display-name: '&7&lCrofter'
       representing-material: 'light_gray_concrete'
-      money-cost: 100.0
-      xp-cost: 9
-      play-time: 60m
-      mcmmo-levels: 15
+      rankup-requirements:
+        player-money-requirements:
+        - gets-deducted: true
+          player-money: 100.0
+        jobs-level-requirements:
+        - jobs-names: Woodcutter, Miner, Builder, Digger, Farmer, Hunter, Explorer,
+            Crafter, Fisherman, Weaponsmith, Brewer, Enchanter
+          levels-sum: 15
+        distance-traveled-requirements:
+        - travel-method: foot, water, falling, climbing, flying, minecart, boat, pig, horse,
+            sprinting, crouching
+          player-travel-distance: 600
+        player-experience-requirements:
+        - gets-deducted: true
+          player-experience: 9
+        play-time-requirements:
+        - player-playtime: 1h
+        mcmmo-level-requirements:
+        - mcmmo-skills: ACROBATICS, ALCHEMY, ARCHERY, AXES, EXCAVATION, FISHING, HERBALISM,
+            MINING, REPAIR, SALVAGE, SMELTING, SWORDS, TAMING, UNARMED, WOODCUTTING
+          levels-sum: 15
       perks:
       - '&7Perk 1'
       - '&7Perk 2'
@@ -50,10 +101,27 @@ branch:
     peasant:
       display-name: '&7&lPeasant'
       representing-material: 'light_gray_concrete'
-      money-cost: 200.0
-      xp-cost: 12
-      play-time: 2h
-      mcmmo-levels: 20
+      rankup-requirements:
+        player-money-requirements:
+        - gets-deducted: true
+          player-money: 200.0
+        jobs-level-requirements:
+        - jobs-names: Woodcutter, Miner, Builder, Digger, Farmer, Hunter, Explorer,
+            Crafter, Fisherman, Weaponsmith, Brewer, Enchanter
+          levels-sum: 20
+        distance-traveled-requirements:
+        - travel-method: foot, water, falling, climbing, flying, minecart, boat, pig, horse,
+            sprinting, crouching
+          player-travel-distance: 800
+        player-experience-requirements:
+        - gets-deducted: true
+          player-experience: 12
+        play-time-requirements:
+        - player-playtime: 2h
+        mcmmo-level-requirements:
+        - mcmmo-skills: ACROBATICS, ALCHEMY, ARCHERY, AXES, EXCAVATION, FISHING, HERBALISM,
+            MINING, REPAIR, SALVAGE, SMELTING, SWORDS, TAMING, UNARMED, WOODCUTTING
+          levels-sum: 20
       perks:
       - '&7Perk 1'
       - '&7Perk 2'
@@ -64,10 +132,27 @@ branch:
     landlord:
       display-name: '&7&lLandlord'
       representing-material: 'light_gray_concrete'
-      money-cost: 500.0
-      xp-cost: 18
-      play-time: 4h
-      mcmmo-levels: 25
+      rankup-requirements:
+        player-money-requirements:
+        - gets-deducted: true
+          player-money: 500.0
+        jobs-level-requirements:
+        - jobs-names: Woodcutter, Miner, Builder, Digger, Farmer, Hunter, Explorer,
+            Crafter, Fisherman, Weaponsmith, Brewer, Enchanter
+          levels-sum: 25
+        distance-traveled-requirements:
+        - travel-method: foot, water, falling, climbing, flying, minecart, boat, pig, horse,
+            sprinting, crouching
+          player-travel-distance: 1000
+        player-experience-requirements:
+        - gets-deducted: true
+          player-experience: 18
+        play-time-requirements:
+        - player-playtime: 4h
+        mcmmo-level-requirements:
+        - mcmmo-skills: ACROBATICS, ALCHEMY, ARCHERY, AXES, EXCAVATION, FISHING, HERBALISM,
+            MINING, REPAIR, SALVAGE, SMELTING, SWORDS, TAMING, UNARMED, WOODCUTTING
+          levels-sum: 25
       perks:
       - '&7Perk 1'
       - '&7Perk 2'
