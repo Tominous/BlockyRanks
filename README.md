@@ -6,3 +6,5 @@ BlockyRanks is a simple but powerful Ranks plugin for your Minecraft server. It 
 
 ## Check out the [wiki](https://github.com/BlockyBorzan/BlockyRanks/wiki) for more details.
 
+## Check out the [API](https://github.com/BlockyBorzan/BlockyRanks/tree/master/BlockyRanksAPI) if you are a developer interested in using some functionality of this plugin
+
