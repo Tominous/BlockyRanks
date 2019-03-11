@@ -2,7 +2,6 @@
 	<xmlproperty file="pom.xml" prefix="pom" />
 		
 	<target name="Build">
-		<jar jarfile="target\${ant.project.name}-${pom.project.version}.jar" basedir="./target/classes/" includes="**/*" >
-		</jar>
+		<jar jarfile="target\${ant.project.name}-${pom.project.version}.jar" basedir="./target/classes/" includes="**/*" />
 	</target>
 </project>

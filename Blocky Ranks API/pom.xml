@@ -22,11 +22,6 @@
 			<id>spigot-repo</id>
 			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots</url>
 		</repository>
-		<!-- Jitpack repository (for Jobs) -->
-		<repository>
-			<id>jitpack.io</id>
-			<url>https://jitpack.io</url>
-		</repository>
 	</repositories>
 
 	<dependencies>
@@ -36,13 +31,6 @@
 			<artifactId>spigot-api</artifactId>
 			<version>1.13.2-R0.1-SNAPSHOT</version>
 			<scope>provided</scope>
-		</dependency>
-
-		<!-- Jobs -->
-		<dependency>
-			<groupId>com.github.Zrips</groupId>
-			<artifactId>Jobs</artifactId>
-			<version>4.10.0</version>
 		</dependency>
 	</dependencies>
 </project>
