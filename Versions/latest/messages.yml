@@ -1,0 +1,41 @@
+# ---
+# MESSAGE SETTINGS:
+# ---
+
+# This prefix is added before each message that gets displayed to players
+plugin-chat-prefix: '&7[&6&lB&3&llocky&6&lR&3&lanks&7] &r'
+
+# You can also use chat color codes in combination with the ampersand character ('&').
+# Leave the options empty ('') in order to not send any messages.
+# Supported placeholders are {player} (the player's name), {nickname} (the player's nickname)
+# and {rank} (the player's rank). More will probably be added in the future.
+messages:
+  # Sent only to the player on rankup
+  player-rankup: '&3Congratulations! You just ascended to the rank of &6{rank}&3!'
+
+  # Broadcast to the whole server. If player-rankup is defined (not empty or missing), 
+  # the player who just ranked up will not receive this message because they already 
+  # receive the player-rankup message.
+  rankup-broadcast: '&3Congratulations to &6{nickname}&3 for ranking up to &6{rank}&3!'
+  
+  # Message sent to players who reached a rank that can not rank up any higher 
+  # (Last rank on any branch that has no successors)
+  highest-rank-reached-err: '&5 As &6{rank}&5, you have already reached the highest rank and can not rank up any further. Congratulations!'
+
+  # Message sent to players when they try to rankup, but their new rank could not be saved
+  # using the specified storage-type. The rankup is not successful in this case (rankup-unsuccessful will also be sent)! 
+  saving-rank-err: '&4Something went wrong and your new rank was not saved.'
+
+  # Message sent to players when they try to rankup, but an error in the code of any
+  # unexpected kind happens. The rankup is not successful in this case (rankup-unsuccessful will also be sent)!
+  # NO PLACEHOLDERS ARE SUPPORTED ON THIS MESSAGE!
+  exception-err: '&4An error has occured, please try again or contact staff about it if the problem persists.'
+
+  # Message sent to players when they try to use any blockyranks commands in a world where no
+  # ranks branch is configured (see below)   
+  # NO PLACEHOLDERS ARE SUPPORTED ON THIS MESSAGE!
+  ranks-unavailable-err: '&4Unfortunately ranks are not available in this world.'
+
+  # Message sent to players when their rankup was unsuccessful.
+  # NO PLACEHOLDERS ARE SUPPORTED ON THIS MESSAGE!
+  rankup-unsuccessful: '&cUnable to rank up.'
