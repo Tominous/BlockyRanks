@@ -2,6 +2,7 @@ package me.blocky.ranksapi.datastructure;
 
 import java.util.List;
 import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
 
 import me.blocky.ranksapi.requirement.Requirement;
 
@@ -40,5 +41,11 @@ public abstract class Rank {
   /**
    * Gets the Material that represents this rank in the gui.
    */
+  @Deprecated
   public abstract Material getMaterial();
+  
+  /**
+   * Gets a clone of the item that represents this rank in the gui.
+   */
+  public abstract ItemStack getItemStack(); 
 }
