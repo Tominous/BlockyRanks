@@ -1,0 +1,162 @@
+# See the sample config file 'sample.yml' for comments and details.
+
+branch:
+  name: '&9&lMilitary Branch'
+  representing-material: 'blue_wool'
+  child-branches: [aristocratic.yml]
+  ranks:
+
+    archer:
+      display-name: '&9&lArcher'
+      representing-material: 'blue_concrete'
+      rankup-requirements:
+        player-money-requirements:
+        - gets-deducted: true
+          player-money: 750.0
+        jobs-level-requirements:
+        - jobs-names: Woodcutter, Miner, Builder, Digger, Farmer, Hunter, Explorer,
+            Crafter, Fisherman, Weaponsmith, Brewer, Enchanter
+          levels-sum: 50
+        distance-traveled-requirements:
+        - travel-method: foot, water, falling, climbing, flying, minecart, boat, pig, horse,
+            sprinting, crouching
+          player-travel-distance: 1350
+        player-experience-requirements:
+        - gets-deducted: true
+          player-experience: 25
+        play-time-requirements:
+        - player-playtime: 10h
+        mcmmo-level-requirements:
+        - mcmmo-skills: ACROBATICS, ALCHEMY, ARCHERY, AXES, EXCAVATION, FISHING, HERBALISM,
+            MINING, REPAIR, SALVAGE, SMELTING, SWORDS, TAMING, UNARMED, WOODCUTTING
+          levels-sum: 40
+      perks:
+      - '&9Perk 1'
+      - '&9Perk 2'
+      - '&9Perk 3'
+      rankup-commands:
+      - '/give {player} woodensword 1'
+
+    crossbowman:
+      display-name: '&9&lCrossbowman'
+      representing-material: 'blue_concrete'
+      rankup-requirements:
+        player-money-requirements:
+        - gets-deducted: true
+          player-money: 1000.0
+        jobs-level-requirements:
+        - jobs-names: Woodcutter, Miner, Builder, Digger, Farmer, Hunter, Explorer,
+            Crafter, Fisherman, Weaponsmith, Brewer, Enchanter
+          levels-sum: 60
+        distance-traveled-requirements:
+        - travel-method: foot, water, falling, climbing, flying, minecart, boat, pig, horse,
+            sprinting, crouching
+          player-travel-distance: 1700
+        player-experience-requirements:
+        - gets-deducted: true
+          player-experience: 30
+        play-time-requirements:
+        - player-playtime: 1d
+        mcmmo-level-requirements:
+        - mcmmo-skills: ACROBATICS, ALCHEMY, ARCHERY, AXES, EXCAVATION, FISHING, HERBALISM,
+            MINING, REPAIR, SALVAGE, SMELTING, SWORDS, TAMING, UNARMED, WOODCUTTING
+          levels-sum: 50
+      perks:
+      - '&9Perk 1'
+      - '&9Perk 2'
+      - '&9Perk 3'
+      rankup-commands:
+      - '/give {player} stonesword 1'
+
+    cannoneer:
+      display-name: '&9&lCannoneer'
+      representing-material: 'blue_concrete'
+      rankup-requirements:
+        player-money-requirements:
+        - gets-deducted: true
+          player-money: 1250.0
+        jobs-level-requirements:
+        - jobs-names: Woodcutter, Miner, Builder, Digger, Farmer, Hunter, Explorer,
+            Crafter, Fisherman, Weaponsmith, Brewer, Enchanter
+          levels-sum: 70
+        distance-traveled-requirements:
+        - travel-method: foot, water, falling, climbing, flying, minecart, boat, pig, horse,
+            sprinting, crouching
+          player-travel-distance: 2050
+        player-experience-requirements:
+        - gets-deducted: true
+          player-experience: 35
+        play-time-requirements:
+        - player-playtime: 1d 12h
+        mcmmo-level-requirements:
+        - mcmmo-skills: ACROBATICS, ALCHEMY, ARCHERY, AXES, EXCAVATION, FISHING, HERBALISM,
+            MINING, REPAIR, SALVAGE, SMELTING, SWORDS, TAMING, UNARMED, WOODCUTTING
+          levels-sum: 60
+      perks:
+      - '&9Perk 1'
+      - '&9Perk 2'
+      - '&9Perk 3'
+      rankup-commands:
+      - '/give {player} goldsword 1'
+
+    siege-engineer:
+      display-name: '&9&lSiege Engineer'
+      representing-material: 'blue_concrete'
+      rankup-requirements:
+        player-money-requirements:
+        - gets-deducted: true
+          player-money: 1500.0
+        jobs-level-requirements:
+        - jobs-names: Woodcutter, Miner, Builder, Digger, Farmer, Hunter, Explorer,
+            Crafter, Fisherman, Weaponsmith, Brewer, Enchanter
+          levels-sum: 80
+        distance-traveled-requirements:
+        - travel-method: foot, water, falling, climbing, flying, minecart, boat, pig, horse,
+            sprinting, crouching
+          player-travel-distance: 2400
+        player-experience-requirements:
+        - gets-deducted: true
+          player-experience: 40
+        play-time-requirements:
+        - player-playtime: 2d
+        mcmmo-level-requirements:
+        - mcmmo-skills: ACROBATICS, ALCHEMY, ARCHERY, AXES, EXCAVATION, FISHING, HERBALISM,
+            MINING, REPAIR, SALVAGE, SMELTING, SWORDS, TAMING, UNARMED, WOODCUTTING
+          levels-sum: 70
+      perks:
+      - '&9Perk 1'
+      - '&9Perk 2'
+      - '&9Perk 3'
+      rankup-commands:
+      - '/give {player} ironsword 1'
+
+    sergeant:
+      display-name: '&9&lSergeant'
+      representing-material: 'blue_concrete'
+      rankup-requirements:
+        player-money-requirements:
+        - gets-deducted: true
+          player-money: 2000.0
+        jobs-level-requirements:
+        - jobs-names: Woodcutter, Miner, Builder, Digger, Farmer, Hunter, Explorer,
+            Crafter, Fisherman, Weaponsmith, Brewer, Enchanter
+          levels-sum: 90
+        distance-traveled-requirements:
+        - travel-method: foot, water, falling, climbing, flying, minecart, boat, pig, horse,
+            sprinting, crouching
+          player-travel-distance: 2750
+        player-experience-requirements:
+        - gets-deducted: true
+          player-experience: 50
+        play-time-requirements:
+        - player-playtime: 3d 12h
+        mcmmo-level-requirements:
+        - mcmmo-skills: ACROBATICS, ALCHEMY, ARCHERY, AXES, EXCAVATION, FISHING, HERBALISM,
+            MINING, REPAIR, SALVAGE, SMELTING, SWORDS, TAMING, UNARMED, WOODCUTTING
+          levels-sum: 80
+      perks:
+      - '&9Perk 1'
+      - '&9Perk 2'
+      - '&9Perk 3'
+      rankup-commands:
+      - '/give {player} diamondsword 1'
