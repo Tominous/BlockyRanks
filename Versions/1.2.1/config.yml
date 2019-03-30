@@ -7,7 +7,7 @@
 
 # DON'T DELETE THIS KEY OR CHANGE THE VALUE. IT IS IMPORTANT FOR AUTOMATIC CONFIG UPDATES!
 # CHANGES MIGHT LEAD TO DATA INCONSISTENCIES!
-version: "v1.3.0"
+version: "v1.2.1"
 
 # ---
 # RANKS SETTINGS:
@@ -51,14 +51,3 @@ linked-worlds:
 # IMPORTANT: The linked worlds should have the same initial branch or you can lose rank data. 
 # (This is not checked as you can link worlds across servers where the initial branch can't be looked up)
 
-# This sound effect is played when a player ranks up.
-# All available sounds can be found here: 
-# https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Sound.html
-# Leave the value empty ('') to not play any sound.
-play-sound-on-rankup: 'ENTITY_ENDER_EYE_DEATH'
-
-# This particle effect is shown when a player ranks up.
-# All available effects can be found here:
-# https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Particle.html
-# Leave the value empty ('') to not show any particle effect.
-show-particles-on-rankup: 'FIREWORKS_SPARK'
