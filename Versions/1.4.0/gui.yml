@@ -89,7 +89,8 @@ choose-branch-inventory:
     '2': 'gray_stained_glass_pane'
     # note that you do not need to specify items for b1 to b5 as you should configure those in each branch's own .yml
     # (and shouldn't really, though you can, I won't stop you and it won't do anything)
-    
+
+
 # This section configures the inventory shown when a player displays all ranks in a branch
 ranks-inventory:
   # This item is a navigation button used to display the previous ranks in a branch (if more than 36 in branch)

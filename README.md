@@ -7,5 +7,5 @@ BlockyRanks is a simple but powerful Ranks plugin for your Minecraft server. It 
 **Check out the [WIKI](https://github.com/BlockyBorzan/BlockyRanks/wiki) for more details.**
 
 **Check out the [API](https://github.com/BlockyBorzan/BlockyRanks/tree/master/Blocky%20Ranks%20API/src/main/java/me/blocky/ranksapi) for Devs**  
-BlockyRanks version **v1.2.0** needed
+BlockyRanks version **v1.2.0** or newer needed
 

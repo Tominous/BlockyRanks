@@ -7,7 +7,7 @@
 
 # DON'T DELETE THIS KEY OR CHANGE THE VALUE. IT IS IMPORTANT FOR AUTOMATIC CONFIG UPDATES!
 # CHANGES MIGHT LEAD TO DATA INCONSISTENCIES!
-version: "v1.5.0"
+version: "v1.4.0"
 
 # ---
 # RANKS SETTINGS:
@@ -62,4 +62,3 @@ play-sound-on-rankup: 'ENTITY_ENDER_EYE_DEATH'
 # https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Particle.html
 # Leave the value empty ('') to not show any particle effect.
 show-particles-on-rankup: 'FIREWORKS_SPARK'
-  
