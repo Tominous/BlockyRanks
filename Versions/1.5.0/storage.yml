@@ -1,0 +1,17 @@
+# ---
+# STORAGE SETTINGS:
+# ---
+
+# supported are 'yml', 'mysql' and 'sqlite'. mysql is recommended.
+storage-type: 'sqlite'
+
+# mysql connection data (only relevant if storage-type is 'mysql')
+# (the database has to exist beforehand in order to use mysql storage
+# however all tables are created automatically)
+mysql:
+  host: 'host'
+  database: 'database'
+  port: '3306'
+  user: 'user'
+  password: 'password'
+  table-prefix: 'blockyranks_'

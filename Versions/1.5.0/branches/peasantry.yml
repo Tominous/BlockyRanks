@@ -1,0 +1,161 @@
+# See the sample config file 'sample.yml' for comments and details.
+
+branch:
+  name: '&7&lPeasantry Branch'
+  representing-material: 'light_gray_wool'
+  child-branches: [military.yml, mercantile.yml]
+  ranks:
+    begger:
+      display-name: '&7&lBegger'
+      representing-material: 'light_gray_concrete'
+      rankup-requirements:
+        player-money-requirements:
+        - gets-deducted: true
+          player-money: 10.0
+        jobs-level-requirements:
+        - jobs-names: Woodcutter, Miner, Builder, Digger, Farmer, Hunter, Explorer,
+            Crafter, Fisherman, Weaponsmith, Brewer, Enchanter
+          levels-sum: 5
+        distance-traveled-requirements:
+        - travel-method: foot, water, falling, climbing, flying, minecart, boat, pig, horse,
+            sprinting, crouching
+          player-travel-distance: 200
+        player-experience-requirements:
+        - gets-deducted: true
+          player-experience: 3
+        play-time-requirements:
+        - player-playtime: 15m
+        mcmmo-level-requirements:
+        - mcmmo-skills: ACROBATICS, ALCHEMY, ARCHERY, AXES, EXCAVATION, FISHING, HERBALISM,
+            MINING, REPAIR, SALVAGE, SMELTING, SWORDS, TAMING, UNARMED, WOODCUTTING
+          levels-sum: 5
+      perks:
+      - '&7Perk 1'
+      - '&7Perk 2'
+      - '&7Perk 3'
+      rankup-commands:
+      - '/give {player} seeds 64'
+
+    buffoon:
+      display-name: '&7&lBuffoon'
+      representing-material: 'light_gray_concrete'
+      rankup-requirements:
+        player-money-requirements:
+        - gets-deducted: true
+          player-money: 50.0
+        jobs-level-requirements:
+        - jobs-names: Woodcutter, Miner, Builder, Digger, Farmer, Hunter, Explorer,
+            Crafter, Fisherman, Weaponsmith, Brewer, Enchanter
+          levels-sum: 10
+        distance-traveled-requirements:
+        - travel-method: foot, water, falling, climbing, flying, minecart, boat, pig, horse,
+            sprinting, crouching
+          player-travel-distance: 400
+        player-experience-requirements:
+        - gets-deducted: true
+          player-experience: 6
+        play-time-requirements:
+        - player-playtime: 30m
+        mcmmo-level-requirements:
+        - mcmmo-skills: ACROBATICS, ALCHEMY, ARCHERY, AXES, EXCAVATION, FISHING, HERBALISM,
+            MINING, REPAIR, SALVAGE, SMELTING, SWORDS, TAMING, UNARMED, WOODCUTTING
+          levels-sum: 10
+      perks:
+      - '&7Perk 1'
+      - '&7Perk 2'
+      - '&7Perk 3'
+      rankup-commands:
+      - '/give {player} carrot 64'
+
+    crofter:
+      display-name: '&7&lCrofter'
+      representing-material: 'light_gray_concrete'
+      rankup-requirements:
+        player-money-requirements:
+        - gets-deducted: true
+          player-money: 100.0
+        jobs-level-requirements:
+        - jobs-names: Woodcutter, Miner, Builder, Digger, Farmer, Hunter, Explorer,
+            Crafter, Fisherman, Weaponsmith, Brewer, Enchanter
+          levels-sum: 15
+        distance-traveled-requirements:
+        - travel-method: foot, water, falling, climbing, flying, minecart, boat, pig, horse,
+            sprinting, crouching
+          player-travel-distance: 600
+        player-experience-requirements:
+        - gets-deducted: true
+          player-experience: 9
+        play-time-requirements:
+        - player-playtime: 1h
+        mcmmo-level-requirements:
+        - mcmmo-skills: ACROBATICS, ALCHEMY, ARCHERY, AXES, EXCAVATION, FISHING, HERBALISM,
+            MINING, REPAIR, SALVAGE, SMELTING, SWORDS, TAMING, UNARMED, WOODCUTTING
+          levels-sum: 15
+      perks:
+      - '&7Perk 1'
+      - '&7Perk 2'
+      - '&7Perk 3'
+      rankup-commands:
+      - '/give {player} bakedpotato 64'
+
+    peasant:
+      display-name: '&7&lPeasant'
+      representing-material: 'light_gray_concrete'
+      rankup-requirements:
+        player-money-requirements:
+        - gets-deducted: true
+          player-money: 200.0
+        jobs-level-requirements:
+        - jobs-names: Woodcutter, Miner, Builder, Digger, Farmer, Hunter, Explorer,
+            Crafter, Fisherman, Weaponsmith, Brewer, Enchanter
+          levels-sum: 20
+        distance-traveled-requirements:
+        - travel-method: foot, water, falling, climbing, flying, minecart, boat, pig, horse,
+            sprinting, crouching
+          player-travel-distance: 800
+        player-experience-requirements:
+        - gets-deducted: true
+          player-experience: 12
+        play-time-requirements:
+        - player-playtime: 2h
+        mcmmo-level-requirements:
+        - mcmmo-skills: ACROBATICS, ALCHEMY, ARCHERY, AXES, EXCAVATION, FISHING, HERBALISM,
+            MINING, REPAIR, SALVAGE, SMELTING, SWORDS, TAMING, UNARMED, WOODCUTTING
+          levels-sum: 20
+      perks:
+      - '&7Perk 1'
+      - '&7Perk 2'
+      - '&7Perk 3'
+      rankup-commands:
+      - '/give {player} bread 64'
+
+    landlord:
+      display-name: '&7&lLandlord'
+      representing-material: 'light_gray_concrete'
+      rankup-requirements:
+        player-money-requirements:
+        - gets-deducted: true
+          player-money: 500.0
+        jobs-level-requirements:
+        - jobs-names: Woodcutter, Miner, Builder, Digger, Farmer, Hunter, Explorer,
+            Crafter, Fisherman, Weaponsmith, Brewer, Enchanter
+          levels-sum: 25
+        distance-traveled-requirements:
+        - travel-method: foot, water, falling, climbing, flying, minecart, boat, pig, horse,
+            sprinting, crouching
+          player-travel-distance: 1000
+        player-experience-requirements:
+        - gets-deducted: true
+          player-experience: 18
+        play-time-requirements:
+        - player-playtime: 4h
+        mcmmo-level-requirements:
+        - mcmmo-skills: ACROBATICS, ALCHEMY, ARCHERY, AXES, EXCAVATION, FISHING, HERBALISM,
+            MINING, REPAIR, SALVAGE, SMELTING, SWORDS, TAMING, UNARMED, WOODCUTTING
+          levels-sum: 25
+      perks:
+      - '&7Perk 1'
+      - '&7Perk 2'
+      - '&7Perk 3'
+      rankup-commands:
+      - '/give {player} cake 3'

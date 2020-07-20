@@ -1,0 +1,181 @@
+#This defines your branch.
+branch:
+  # This is the name of the item that will be shown to players in the gui.
+  # This variable supports chat color in combination with the '&' character.
+  name: '&7&lSample'
+
+  # This is the material of the item that represents this branch in the gui.
+  # It must be a valid material from https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+  # This value is case insensitive.
+  representing-material: 'diamond_block'
+
+  # Specify the list of up to 5 branches that follow this branch
+  # (The last rank of this branch proceeds into the first ranks of the branches in this list)
+  # If this list is empty, players can't rank up any further when they reach the last rank in this branch.
+  # The values in the list have to be filenames of yml files in the branches folder that contain
+  # a branch configuration of the desired branch.
+  child-branches: [another-sample.yml, child-branch-sample.yml]
+
+  # Specify at least 1 rank that belongs to this branch.
+  ranks:
+    # This unique identifier corresponds to the name of the corresponding rank in your permissions manager.
+    # It is also the name of the rank you have to use to rank up a player using the /blockyranks set ... command.
+    # Make sure your whole branch tree only has one rank identified by this key!
+    example:
+
+      # This is the name of the rank as it is displayed to the players in the gui.
+      # This variable supports chat color in combination with the '&' character.
+      display-name: '&6Example'
+
+      # This is the material of the item that represents this rank in the gui.
+      # It must be a valid material from https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+      # This value is case insensitive.
+      representing-material: 'gold_block'
+      
+      # Here you can define which requirements players have to meet in order to rank up.
+      # All requirements have to be met in order to rank up. 
+      # You can remove any requirements and requirements sections in order to not have any requirements to rank up.
+      # Also, setting the requirement value to 0 will also ignore it. ('player-money: 0.0' for example)
+      # Unless specified otherwise, requirements are deductible by specifying the 'gets-deducted' value as 'true'.
+      # Ommitting this key is the same as setting it to false.
+      # Do not define more than one requirement of the same requirement type that gets deducted or 
+      # that might lead to unexpected results. 
+      rankup-requirements:
+      
+        # Player money requirements define requirements where a player has to have enough
+        # funds to rank up. These funds can get deducted (player has to pay) or not.
+        player-money-requirements:
+          # Defines the amount of money the player has to have to rank up.
+        - player-money: 100.0
+          gets-deducted: true
+          # You can define more than one requirement of the same type as this example shows. 
+          # In this case, the player has to have 200.0 balance but only pays the 100 from the above example.
+        - player-money: 200.0
+          
+          
+        # REQUIRES THE JOBS REBORN PLUGIN (https://www.spigotmc.org/resources/jobs-reborn.4216/)
+        # Jobs level requirements define requirements where a player has to have a certain total level in
+        # a defined set of Jobs. These jobs are taken directly from your Jobs plugin so you have to use
+        # the jobs that you defined in your config (if you changed the default config).
+        # Jobs level requirements are only deductible if only one job name is specified that the levels
+        # can be deducted from.
+        jobs-level-requirements:
+          # In this example the player has to be a Woodcutter on level 10.
+          # These are the jobs that are taken into account.
+        - jobs-names: Woodcutter
+          # This is the total sum level in all of the above jobs. 
+          levels-sum: 10
+          gets-deducted: true
+          # In this example the player has have 15 total combined levels in the Miner and Builder Jobs.
+        - jobs-names: Miner, Builder
+          levels-sum: 15
+        
+        # Distance traveled requirements define requirements where a player has to travel a certain distance
+        # in blocks by specified means. Valid travel methods are:
+        # foot, water, falling, climbing, flying, minecart, boat, pig, horse, sprinting, crouching
+        # This requirement type is non-deductible.
+        distance-traveled-requirements:
+          # The method by which the distance is measured
+        - travel-method: foot, sprinting, boat
+          # The total amount of blocks traveled by all of the above methods combined.
+          player-travel-distance: 1000 #blocks
+        - travel-method: flying
+          player-travel-distance: 500
+       
+        # Player experience requirements define requirements where a player has to have enough levels to rank up.
+        # Like the player money requirements, these can get deducted. 
+        # Do not define more than one requirement player money requirement that gets deducted or 
+        # that might lead to unexpected results.
+        player-experience-requirements:
+          # The number of levels a player has to have in order to rank up.
+        - player-experience: 5 
+          gets-deducted: true
+          
+        # Play time requirements define requirements where the player has to have played this amount of time to rank up.
+        # This requirement type is non-deductible.
+        play-time-requirements:
+          # The value supports short-hand notation:
+          #   y... years (really? like... really?)
+          #   w... weeks
+          #   d... days
+          #   h... hours
+          #   m... minutes
+          #   s... seconds
+          # for example, 1d6h2m40s would equal to 1 day, 6 hours, 2 minutes and 40seconds. 600s would equal to 600 seconds or 10 minutes.
+          # (just entering a number is fine as well, they are interpreted in seconds. e.g. 604800 is equal to 7d (7 days))
+        - player-playtime: 15m
+        
+        # REQUIRES THE mcMMO PLUGIN (https://www.spigotmc.org/resources/official-mcmmo-overhaul.64348/)
+        # McMMO level requirements define requirements where a player has to have a certain total level in
+        # a defined set of mcMMO skills. These skills are taken directly from your mcMMO plugin so you have to use
+        # the skill names that you defined in your config (if you changed the default config).
+        # McMMO level requirements are only deductible if only one skill name is specified that the levels
+        # can be deducted from.
+        mcmmo-level-requirements:
+          # These are the skills that are taken into account.
+        - mcmmo-skills: ACROBATICS, ALCHEMY, ARCHERY, AXES, EXCAVATION, FISHING, HERBALISM,
+            MINING, REPAIR, SALVAGE, SMELTING, SWORDS, TAMING, UNARMED, WOODCUTTING
+          # This is the total sum level in all of the above skills.
+          levels-sum: 3
+          
+        # REQUIRES THE VotingPlugin PLUGIN (https://www.spigotmc.org/resources/votingplugin.15358/)
+        # Voting requirements define requirements where a player has to have a certain number of votes. 
+        # measured by one of 13 metrics. These metrics are: 
+        # all-time-total, highest-daily-total, highest-weekly-total, highest-monthly-total, best-daily-streak 
+        # best-weekly-streak, best-monthly-streak, day-total, week-total, month-total, day-streak, week-streak and month-streak
+        voting-requirements:
+          # This is the metric taken into account
+        - votes-metric: all-time-total
+          # This is the number of votes needed
+          votes-needed: 3
+      
+      
+      # These are the perks the players get when they rank up to this rank.
+      # (They are purely esthetic and shown in the gui - the actual implementation has
+      # to be done using your permissions plugin of choice!)
+      # The values support chat color in combination with the '&' character.
+      perks:
+      - '&3Perk 1'
+      - '&2Perk 2'
+      - '&1Perk 3'
+
+      # These commands will be run upon ranking up to the rank.
+      # You can specify as many as you like and they will be run in order.
+      # The command sender will be the console so it will behave as if you type the
+      # command into the console manually. No checks are performed on the validity
+      # of the command! If you don't want to run any commands just remove this key or
+      # set it to []. The commands support the placeholders {player}, {nickname} and {rank}.
+      rankup-commands:
+      - '/give {player} ironsword 1!'
+ 
+    secondrank:
+      display-name: '&3&lSecondExample'
+      representing-material: 'LAPIS_BLOCK'
+      rankup-requirements:
+        player-money-requirements:
+        - gets-deducted: true
+          player-money: 100.0
+        jobs-level-requirements:
+        - jobs-names: Woodcutter, Miner, Builder, Digger, Farmer, Hunter, Explorer,
+            Crafter, Fisherman, Weaponsmith, Brewer, Enchanter
+          levels-sum: 20
+        distance-traveled-requirements:
+        - travel-method: foot, water, falling, climbing, flying, minecart, boat, pig, horse,
+            sprinting, crouching
+          player-travel-distance: 1000
+        player-experience-requirements:
+        - gets-deducted: true
+          player-experience: 5
+        play-time-requirements:
+        - player-playtime: 15m
+        mcmmo-level-requirements:
+        - mcmmo-skills: ACROBATICS, ALCHEMY, ARCHERY, AXES, EXCAVATION, FISHING, HERBALISM,
+            MINING, REPAIR, SALVAGE, SMELTING, SWORDS, TAMING, UNARMED, WOODCUTTING
+          levels-sum: 3
+      perks:
+      - '&4Perk 1'
+      - '&5Perk 2'
+      - '&6Perk 3'
+      rankup-commands:
+      - '/say {nickname} reached the last rank: {rank}!'
+

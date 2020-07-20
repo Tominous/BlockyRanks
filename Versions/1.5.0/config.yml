@@ -1,0 +1,65 @@
+#author: Blocky
+#compatible with MC 1.13+
+
+#DISCLAIMER: 
+#THIS IS NOT A PERMISSION PROVIDER, MERELY A PLUGIN TO HELP WITH RANKING UP PLAYERS ALONG PREDEFINED 
+#RANK PATH. IT REQUIRES VAULT, AN ECONOMY AND A PERMISSION PROVIDER TO WORK!
+
+# DON'T DELETE THIS KEY OR CHANGE THE VALUE. IT IS IMPORTANT FOR AUTOMATIC CONFIG UPDATES!
+# CHANGES MIGHT LEAD TO DATA INCONSISTENCIES!
+version: "v1.5.0"
+
+# ---
+# RANKS SETTINGS:
+# ---
+
+# If this is set to true, when a player ranks up, their old rank is deleted from any database your permissions provider might have.
+# Else the new rank just gets added to their ranks. If you wish to demote players it's strongly recommended to set this to true.
+# This requires Vault to work.
+remove-old-rank-on-rankup: true
+
+# This list contains the config files that describe the "per-world" initial branch of your tree.
+# That means any players that are not on the rank tree will rank up to the first rank of this initial branch.
+# (You can define a separate tree for each world if you want)
+initial-branches:
+  # Here you can define the default branch that is used for all worlds.
+  all-worlds:
+    # This enables or disables the whole default-branch-feature
+    enabled: true
+    # This defines the default branch used in every world by default (this includes the end and the nether worlds!)
+    branch: 'peasantry.yml'
+    # The worlds you don't want using the default initial branch are specified here
+    exempt-worlds:
+    - 'sample_world'
+
+  # The values specified next override the all-worlds branch (if you specified any and enabled the feature).
+  # The file 'peasantry.yml' here contains the initial tree branch for the world 'sample_world'.
+  # You can replace 'sample_world' with the name of your own world and add additional worlds if you want to.
+  sample_world: 'peasantry.yml'
+  # The Nether and The End are treated as different worlds by minecraft. Thus you can specify
+  # different rank trees available to these worlds, compared to the overworld's rank tree.
+  sample_world_nether: 'aristocratic.yml'
+  sample_world_the_end: 'mercantile.yml'
+  # In the above configuration, players who first rank up in the nether would start on the aristocracy branch for example. 
+  
+# This enables rank sharing over different worlds. 
+linked-worlds:
+  - ["world", "world_nether", "world_the_end"]
+# If a world occurs in more than one of these lists, then the lists are combined.
+# So ["world", "world_nether"] and ["world_nether", "world_the_end"] will result in ["world", "world_nether", "world_the_end"]
+# Any non-existent worlds will be treated as if they were worlds on another server and exist.
+# IMPORTANT: The linked worlds should have the same initial branch or you can lose rank data. 
+# (This is not checked as you can link worlds across servers where the initial branch can't be looked up)
+
+# This sound effect is played when a player ranks up.
+# All available sounds can be found here: 
+# https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Sound.html
+# Leave the value empty ('') to not play any sound.
+play-sound-on-rankup: 'ENTITY_ENDER_EYE_DEATH'
+
+# This particle effect is shown when a player ranks up.
+# All available effects can be found here:
+# https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Particle.html
+# Leave the value empty ('') to not show any particle effect.
+show-particles-on-rankup: 'FIREWORKS_SPARK'
+  

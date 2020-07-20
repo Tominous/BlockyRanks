@@ -1,0 +1,107 @@
+# ---
+# GUI SETTINGS:
+# ---
+
+# If this is set to 'none', the player rank will not be indicated in the gui.
+# If this value is not 'none', the player rank in the gui will be indicated by the item you specify here.
+# The value has to be a valid org.bukkit.Material (https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html)
+# (Exception: set this value to 'player_head' to use the player's head as the item)
+player-rank-item: 'player_head'
+
+# This section configures the inventory shown when players rank up.
+rank-up-inventory:
+  # This is the shape of the inventory gui.
+  # The keys/numbers correspond to the rows of the inventory. Keep those in ascending order, starting at 1 and ending at 6!
+  # Each row has a list of elements. Keep those at exactly 9 items per row or they will be cropped/filled
+  # Each item specified here has to be present the 'items' map below.
+  gui:
+    '1': ['1', '1', '1', '2', '2', '2', '3', '3', '3']
+    '2': ['1', 'a', '1', '2', 'p', '2', '3', 'c', '3']
+    '3': ['1', '1', '1', '2', '2', '2', '3', '3', '3']
+    #'4': []
+    #'5': []
+    #'6': []
+
+  # The keys here are the strings you specified in the rows above. The values have to be valid items.
+  # (see the 'player-rank-item' setting for details)
+  #
+  # The following item specifiers are reserved and special:
+  # 'p' -> shows player information and data
+  #
+  # 'a' -> represents the clickable rankup accept item that shows all requirements and rank info (button)
+  #        (if the rankup requirements i.e. money, xp, playtime and mcmmo levels are not sufficiently met,
+  #         this item will represent the non-clickable item that shows which requirements are not met and by how much)
+  #        (You need this in order for players to rank-up)
+  #
+  # 'z' -> represents the non-clickable item displaying the rank info and indicating that the player
+  #        doesn't meet the requirements to rank up. (sort of like a disabled button)  
+  #
+  # 'r' -> represents the non-clickable item displaying the rank info
+  #
+  # 'c' -> represents the clickable cancel item (button) (can be left out, it just closes the inventory gui)
+  #
+  # You can invent any labels (in the gui/in this list) you want, just make sure to map them to your desired item here
+  # Any label present in the gui and not found in this map will be replaced by a non-clickable empty slot in the gui
+  #
+  items:
+    '1': 'lime_stained_glass_pane'
+    '2': 'white_stained_glass_pane'
+    '3': 'red_stained_glass_pane'
+    'a': 'emerald_block'
+    'c': 'redstone_block'
+    'p': 'player_head'
+    'z': 'emerald_ore'
+   
+# This section configures the inventory when a player can choose between 2 and 5 different branches to follow.
+choose-branch-inventory:
+  # You know the drill (or if you don't, follow the instructions for the 'rank-up-inventory' setting above)
+  gui-2-branches:
+    '1': ['1', '1', '1', '1', '1', '1', '1', '1', '1']
+    '2': ['1', '2', 'b1', '2', '1', '2', 'b2', '2', '1']
+    '3': ['1', '1', '1', '1', '1', '1', '1', '1', '1']
+
+  gui-3-branches:
+    '1': ['1', '1', '1', '1', '1', '1', '1', '1', '1']
+    '2': ['1', '2', 'b1', '2', 'b2', '2', 'b3', '2', '1']
+    '3': ['1', '1', '1', '1', '1', '1', '1', '1', '1']
+
+  gui-4-branches:
+    '1': ['1', '1', '1', '1', '1', '1', '1', '1', '1']
+    '2': ['1', 'b1', '2', 'b2', '2', 'b3', '2', 'b4', '1']
+    '3': ['1', '1', '1', '1', '1', '1', '1', '1', '1']
+
+  gui-5-branches:
+    '1': ['1', '1', '1', '1', '1', '1', '1', '1', '1']
+    '2': ['b1', '1', 'b2', '1', 'b3', '1', 'b4', '1', 'b5']
+    '3': ['1', '1', '1', '1', '1', '1', '1', '1', '1']
+
+  #Same as above, except for the new reserved/special specifiers:
+  # 'b1' -> represents the first possible branch's item if present
+  # 'b2' -> represents the second possible branch's item if present
+  # 'b3' -> represents the third possible branch's item if present
+  # 'b4' -> represents the fourth possible branch's item if present
+  # 'b5' -> represents the fifth possible branch's item if present
+  #
+  # (the branch's items are specified in the branches folder's yml files)
+  #
+  items:
+    '1': 'white_stained_glass_pane'
+    '2': 'gray_stained_glass_pane'
+    # note that you do not need to specify items for b1 to b5 as you should configure those in each branch's own .yml
+    # (and shouldn't really, though you can, I won't stop you and it won't do anything)
+    
+# This section configures the inventory shown when a player displays all ranks in a branch
+ranks-inventory:
+  # This item is a navigation button used to display the previous ranks in a branch (if more than 36 in branch)
+  previous-branch-page-item: 'ghast_tear'
+  # This item is a navigation button used to display the next ranks in a branch (if more than 36 in branch)
+  next-branch-page-item: 'gold_nugget'
+  
+# This section defines which items in the /ranks gui will have a glow enchantment effect
+apply-enchantment-glow-in-gui: 
+  # Apply glow to all ranks the player has passed and can't ever rank up to anymore
+  surpassed-ranks: true
+  # Apply glow to the rank the player currently holds
+  current-rank: false
+  # Apply glow to the ranks the player can still reach eventually
+  upcomming-ranks: false
